@@ -19,6 +19,13 @@ const page = () => {
           placeholder="Enter your last name"
           errorMessage="Last name is required"
         />
+        <FormGroup
+          label="Phone Number"
+          id="phone"
+          type="tel"
+          placeholder="Enter your phone number"
+          errorMessage="Phone number is required"
+        />
         <button type="submit" className="primary-btn btn-small">
           Save
         </button>

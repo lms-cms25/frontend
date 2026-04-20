@@ -3,7 +3,7 @@ type FormGroupProps = {
   id: string;
   type: string;
   placeholder: string;
-  errorMessage: string;
+  errorMessage?: string;
 };
 
 const FormGroup = ({
@@ -15,16 +15,24 @@ const FormGroup = ({
 }: FormGroupProps) => {
   return (
     <div className="form-group">
+      
       <label className="form-label" htmlFor={id}>
         {label}
       </label>
+
       <input
         type={type}
         id={id}
         className="form-input"
         placeholder={placeholder}
       />
-      <span className="field-validation-error">{errorMessage}</span>
+
+      {errorMessage && (
+        <span className="field-validation-error">
+          {errorMessage}
+        </span>
+      )}
+
     </div>
   );
 };
