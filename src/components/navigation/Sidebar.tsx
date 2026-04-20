@@ -12,8 +12,7 @@ import {
   ProfileIcon,
   SettingsIcon,
   SidebarIcon,
-  logoShikoIcon,
-  rectangle,
+  logoShikoIcon
 } from "@/app/assets";
 
 const Sidebar = () => {
