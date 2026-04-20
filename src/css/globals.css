@@ -69,7 +69,8 @@ a {
   align-items: center;
 }
 .main {
-  /* border: 1px solid black; */
+  border: 1px solid black;
+
 }
 
 .header{
@@ -77,10 +78,17 @@ a {
   align-items: center;
   justify-content: space-between;
   background-color: var(--sidebar-background-color);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 2rem;
 }
 
 .header-right-column{
-
+  display: flex;
+  gap: 4rem;
+  .header-user{
+    display: flex;
+    align-items: center;
+  }
 }
 
 .sidebar-header {
