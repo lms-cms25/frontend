@@ -13,7 +13,6 @@ import SidebarIcon from "./icons/sidebar-icon.svg";
 import logoBookIcon from "./images/logo-book.png";
 import logoShikoIcon from "./images/logo-shiko.png";
 import notFoundImg from "./images/not-found.png";
-import rectangle from "./images/Rectangle.png"
 import profileImg from "./images/profile-image.png"
 import liveClassImg from "./images/live-class.png"
 
@@ -30,7 +29,6 @@ export {
   ProfileIcon,
   SettingsIcon,
   SidebarIcon,
-  rectangle,
   profileImg,
   liveClassImg
 };

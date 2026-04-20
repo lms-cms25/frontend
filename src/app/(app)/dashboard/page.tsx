@@ -1,8 +1,11 @@
+import { ProfileIcon } from "@/app/assets"
 
 
 const page = () => {
   return (
-    <div>dashboard</div>
+    <div>
+        <button className="primary-btn btn-s"></button>
+    </div>
   )
 }
 
