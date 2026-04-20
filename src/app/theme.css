@@ -1,0 +1,179 @@
+
+:root {
+    /* Typography */
+    --font-heading: var(--font-archivo), sans-serif;
+    --font-body: var(--font-archivo), sans-serif;
+
+    /* Font weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+
+    /* Font sizes */
+    --font-size-xs: 0.75rem;     /* 12px */
+    --font-size-sm: 0.875rem;    /* 14px */
+    --font-size-base: 1rem;      /* 16px */
+    --font-size-md: 1.125rem;    /* 18px */
+    --font-size-lg: 1.25rem;     /* 20px */
+    --font-size-xl: 1.5rem;      /* 24px */
+    --font-size-2xl: 1.875rem;   /* 30px */
+    --font-size-3xl: 2.375rem;   /* 38px */
+    --font-size-4xl: 3rem;       /* 48px */
+    --font-size-5xl: 3.4375rem;  /* 55px */
+
+    /* Main brand colors */
+    --color-primary: #ED5735;
+    --color-primary-hover: #B13F25;
+    --color-primary-dark: #792816;
+    --color-primary-deep: #451408;
+    --color-primary-soft: #F5958A;
+    --color-primary-light: #F9CCC8;
+    --color-primary-pale: #FFF2EF;
+
+    --color-secondary: #2C3545;
+    --color-secondary-hover: #48566E;
+    --color-secondary-light: #677999;
+    --color-secondary-soft: #8B9EC1;
+    --color-secondary-muted: #BAC4D9;
+    --color-secondary-pale: #E9ECF3;
+    --color-secondary-deep: #121720;
+
+    /* Optional accent palette */
+    --color-accent-blue: #007BFF;
+    --color-accent-blue-dark: #0059BC;
+    --color-accent-blue-deep: #00397D;
+    --color-accent-blue-soft: #BACAFF;
+    --color-accent-blue-pale: #ECF0FF;
+
+    --color-accent-green: #05E300;
+    --color-accent-green-dark: #028B00;
+    --color-accent-green-deep: #016400;
+    --color-accent-green-soft: #B1FFB0;
+    --color-accent-green-pale: #F1FFF0;
+
+    /* Neutrals */
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+
+    --color-gray-100: #FCFCFC;
+    --color-gray-200: #F7F7F7;
+    --color-gray-300: #F2F2F2;
+    --color-gray-350: #EEEEEE;
+    --color-gray-400: #E7E7E7;
+    --color-gray-500: #DADADA;
+    --color-gray-600: #C5C5C5;
+    --color-gray-700: #A8A8A8;
+    --color-gray-800: #7A7A7A;
+    --color-gray-900: #4F4F4F;
+
+    /* Backgrounds */
+    --body-background-color: #F5F5F5;
+    --surface-background-color: #FFFFFF;
+    --nav-item-icon-background-default: rgba(44, 53, 69, 0.1);
+    --surface-muted-background-color: #F8F8F8;
+    --sidebar-background-color: #FAFAFA;
+    --card-background-color: #FFFFFF;
+    --input-background-color: #FFFFFF;
+    --hero-dark-background-color: #2C3545;
+    --error-page-background-color: #2C3545;
+
+    /* Text */
+    --text-color: #2C3545;
+    --text-muted-color: #8E8E8E;
+    --text-light-color: #B5B5B5;
+    --text-heading-color: #2C3545;
+    --text-on-dark-color: #FFFFFF;
+    --text-on-primary-color: #FFFFFF;
+    --text-link-color: #ED5735;
+
+    /* Borders */
+    --border-color: #ECECEC;
+    --border-light-color: #F3F3F3;
+    --border-strong-color: #D9D9D9;
+    --border-focus-color: #ED5735;
+    --border-soft-accent: #FCE2DC;
+
+    /* Status colors */
+    --success-color: #6CCB5F;
+    --success-background-color: #EAF8E8;
+    --warning-color: #F4B400;
+    --warning-background-color: #FFF7DD;
+    --danger-color: #E0564A;
+    --danger-background-color: #FDECEA;
+    --info-color: #4C8BF5;
+    --info-background-color: #EAF2FF;
+
+    /* Assignment / badge styles */
+    --badge-in-progress-color: #E28A7A;
+    --badge-in-progress-background-color: #FDEBE7;
+
+    --badge-completed-color: #59B85C;
+    --badge-completed-background-color: #E7F7E7;
+
+    --badge-neutral-color: #7F7F7F;
+    --badge-neutral-background-color: #F2F2F2;
+
+    /* Icons */
+    --icon-default-color: #677999;
+    --icon-muted-color: #B5B5B5;
+    --icon-on-primary-color: #FFFFFF;
+    --icon-on-dark-color: #FFFFFF;
+
+    /* Layout */
+    --container-width: 1400px;
+    --section-padding-x: 1.5rem;
+    --section-padding-y: 1.5rem;
+    --sidebar-width: 240px;
+    --topbar-height: 72px;
+
+    /* Radius */
+    --radius-xs: 0.375rem;   /* 6px */
+    --radius-sm: 0.5rem;     /* 8px */
+    --radius-md: 0.75rem;    /* 12px */
+    --radius-lg: 1rem;       /* 16px */
+    --radius-xl: 1.25rem;    /* 20px */
+    --radius-2xl: 1.5rem;    /* 24px */
+    --radius-pill: 999px;
+
+    /* Shadows */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+    /* Transitions */
+    --transition-fast: all 0.15s ease-in-out;
+    --transition-medium: all 0.25s ease-in-out;
+
+    /* Component-specific */
+    --nav-item-background-active: #FDEEEA;
+    --nav-item-text-active: #ED5735;
+    --nav-item-icon-active: #FFFFFF;
+    --nav-item-icon-background-active: #ED5735;
+
+    --nav-item-background-hover: #F8F8F8;
+    --nav-item-text-default: #2C3545;
+    --nav-item-icon-background-default: #F1F2F4;
+
+    --button-primary-background: #ED5735;
+    --button-primary-background-hover: #B13F25;
+    --button-secondary-background: #2C3545;
+    --button-secondary-background-hover: #48566E;
+    --button-disabled-background: #EAEAEA;
+    --button-disabled-color: #B7B7B7;
+
+    --input-border-color: #E8E8E8;
+    --input-placeholder-color: #B7B7B7;
+    --input-text-color: #2C3545;
+    --input-focus-ring: 0 0 0 3px rgba(237, 87, 53, 0.12);
+
+    --tab-background-active: #2C3545;
+    --tab-text-active: #FFFFFF;
+    --tab-background-default: #F5F5F5;
+    --tab-text-default: #B1B1B1;
+
+    --calendar-event-orange: #F7B7A7;
+    --calendar-event-green: #CBEFC7;
+    --calendar-event-blue: #B9D4FF;
+    --calendar-event-gray: #D4D7DD;
+}
