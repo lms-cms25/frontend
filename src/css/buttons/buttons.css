@@ -3,3 +3,33 @@
     border-style: none;
     cursor: pointer;
 }
+
+.secondary-btn{
+    background-color: var(--button-secondary-background);
+    border-style: none;
+    cursor: pointer;
+}
+
+.btn-small{
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-sm);
+    width: 6rem;
+    height: 2rem;
+}
+
+.btn-normal{
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-sm);
+    width: 6rem;
+    height: 2rem;
+}
+
+.btn-large{
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-sm);
+    padding: 0 1rem;
+}
+
