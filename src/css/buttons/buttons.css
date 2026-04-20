@@ -1,3 +1,5 @@
 .primary-btn{
     background-color: var(--button-primary-background);
+    border-style: none;
+    cursor: pointer;
 }
