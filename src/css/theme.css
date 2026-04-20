@@ -164,10 +164,13 @@
   --button-disabled-background: var(--color-gray-400);
   --button-disabled-color: var(--color-gray-700);
 
-  --input-border-color: var(--color-gray-400);
-  --input-placeholder-color: var(--color-gray-700);
-  --input-text-color: var(--color-secondary);
-  --input-focus-ring: 0 0 0 3px rgba(237, 87, 53, 0.12);
+  /* Form elements */
+  --form-label-text-color: var(--color-secondary);
+
+  --form-input-border-color: var(--color-gray-400);
+  --form-input-placeholder-color: var(--color-gray-700);
+  --form-input-text-color: var(--color-black);
+  --form-input-focus-ring: 0 0 0 3px rgba(237, 87, 53, 0.12);
 
   --tab-background-active: var(--color-secondary);
   --tab-text-active: var(--color-white);

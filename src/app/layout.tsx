@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
-import "../css/globals.css"
-import "../css/theme.css"
-import "../css/buttons/buttons.css"
+import "../css/globals.css";
+import "../css/theme.css";
+import "../css/buttons/buttons.css";
+import "../css/forms/forms.css";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -20,10 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={archivo.variable}
-    >
+    <html lang="en" className={archivo.variable}>
       <body>{children}</body>
     </html>
   );

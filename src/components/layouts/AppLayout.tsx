@@ -1,6 +1,6 @@
 import Sidebar from "../navigation/Sidebar";
 import Image from "next/image";
-import {profileImg} from "@/app/assets"
+import { profileImg } from "@/app/assets";
 
 type AppLayoutProps = {
   children: React.ReactNode;
@@ -18,7 +18,7 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
             <p>email</p>
             <p>notification</p>
             <div className="header-user">
-              <Image src={profileImg} alt=""/>
+              <Image src={profileImg} alt="" />
               <div className="header-user-right">
                 <p>Namn Efternamn</p>
                 <p>Email</p>
