@@ -4,7 +4,7 @@ import { ProfileIcon } from "@/app/assets"
 const page = () => {
   return (
     <div>
-        <button className="secondary-btn btn-small">Save</button>
+      dashboard
     </div>
   )
 }
