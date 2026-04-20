@@ -1,16 +1,16 @@
-.primary-btn{
+.primary-btn {
     background-color: var(--button-primary-background);
     border-style: none;
     cursor: pointer;
 }
 
-.secondary-btn{
+.secondary-btn {
     background-color: var(--button-secondary-background);
     border-style: none;
     cursor: pointer;
 }
 
-.btn-small{
+.btn-small {
     font-family: var(--font-body);
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-sm);
@@ -18,18 +18,22 @@
     height: 2rem;
 }
 
-.btn-normal{
+.btn-normal {
     font-family: var(--font-body);
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-sm);
-    width: 6rem;
-    height: 2rem;
+    width: 9rem;
+    height: 2.5rem;
+    font-size: 16px;
+
 }
 
-.btn-large{
+.btn-large {
     font-family: var(--font-body);
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-sm);
-    padding: 0 1rem;
+    width: 10rem;
+    height: 3.75rem;
+    font-size: 18px;
+    border-radius: 12px;
 }
-
