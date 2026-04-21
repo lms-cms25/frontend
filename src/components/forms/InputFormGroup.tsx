@@ -1,4 +1,4 @@
-type FormGroupProps = {
+type InputFormGroupProps = {
   label: string;
   id: string;
   type: string;
@@ -7,7 +7,7 @@ type FormGroupProps = {
   icon?: string;
 };
 
-const FormGroup = ({
+const InputFormGroup = ({
   label,
   id,
   type,
@@ -15,7 +15,7 @@ const FormGroup = ({
   errorMessage,
   icon,
   ...props
-}: FormGroupProps) => {
+}: InputFormGroupProps) => {
   return (
     <div className="form-group">
       <label className="form-label" htmlFor={id}>
@@ -30,4 +30,4 @@ const FormGroup = ({
   );
 };
 
-export default FormGroup;
+export default InputFormGroup;
