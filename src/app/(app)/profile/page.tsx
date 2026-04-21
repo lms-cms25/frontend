@@ -1,18 +1,19 @@
-import FormGroup from "@/components/forms/FormGroup";
+import InputFormGroup from "@/components/forms/InputFormGroup";
 
 const page = () => {
   return (
     <div style={{ backgroundColor: "white" }}>
       <h1>Profile</h1>
       <form>
-        <FormGroup
+        <InputFormGroup
           label="First Name"
           id="name"
           type="text"
           placeholder="Enter your first name"
           errorMessage="Name is required"
+          icon="/assets/icons/profile-icon.svg"
         />
-        <FormGroup
+        <InputFormGroup
           label="Last Name"
           id="lastName"
           type="text"

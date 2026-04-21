@@ -1,32 +1,33 @@
-type FormGroupProps = {
+type InputFormGroupProps = {
   label: string;
   id: string;
   type: string;
   placeholder: string;
   errorMessage: string;
+  icon?: string;
 };
 
-const FormGroup = ({
+const InputFormGroup = ({
   label,
   id,
   type,
   placeholder,
   errorMessage,
-}: FormGroupProps) => {
+  icon,
+  ...props
+}: InputFormGroupProps) => {
   return (
     <div className="form-group">
       <label className="form-label" htmlFor={id}>
         {label}
       </label>
-      <input
-        type={type}
-        id={id}
-        className="form-input"
-        placeholder={placeholder}
-      />
+      <div className={`input-container ${icon ? "has-icon" : ""}`}>
+        {icon && <img src={icon} className="input-icon" alt="" />}
+        <input {...props} id={id} className="form-input" />
+      </div>
       <span className="field-validation-error">{errorMessage}</span>
     </div>
   );
 };
 
-export default FormGroup;
+export default InputFormGroup;

@@ -18,7 +18,13 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
             <p>email</p>
             <p>notification</p>
             <div className="header-user">
-              <Image src={profileImg} alt="" />
+              <Image
+                src={profileImg}
+                alt="Profilbild"
+                width={40}
+                height={40}
+                className="profile-avatar"
+              />
               <div className="header-user-right">
                 <p>Namn Efternamn</p>
                 <p>Email</p>

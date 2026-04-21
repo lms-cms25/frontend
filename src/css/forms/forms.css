@@ -20,6 +20,24 @@ form {
     font-size: 1.25rem;
   }
 
+  .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      width: 20px;
+      height: 20px;
+      pointer-events: none; /* Gör så att man kan klicka "igenom" ikonen in i fältet */
+    }
+
+    &.has-icon .form-input {
+      padding-left: 3rem; /* Gör plats för ikonen */
+    }
+  }
+
   .form-input {
     padding: 0.7rem;
     border-radius: 10px;
@@ -29,14 +47,6 @@ form {
     color: var(--form-input-text-color);
     font-size: 1rem;
     font-weight: 500;
-
-    &::placeholder {
-      font-size: 1rem;
-      opacity: 0.3;
-    }
-    &::after {
-      content: "Example: ";
-    }
   }
 
   .form-checkbox {

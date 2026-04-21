@@ -12,7 +12,7 @@ import {
   ProfileIcon,
   SettingsIcon,
   SidebarIcon,
-  logoShikoIcon
+  logoShikoIcon,
 } from "@/app/assets";
 
 const Sidebar = () => {
@@ -20,15 +20,14 @@ const Sidebar = () => {
     <aside className="sidebar">
       <div className="sidebar-header">
         <Link href="/">
-          <Image
-            src={logoShikoIcon.src}
-            alt=""
-            width={logoShikoIcon.width / 1.5}
-            height={logoShikoIcon.height / 1.5}
-          />
+          <Image src={logoShikoIcon} alt="" width={143} height={35} />
         </Link>
         <div className="siderbar-icon-background">
-          <SidebarIcon />
+          <img
+            src={SidebarIcon}
+            alt="Sidebar Toggle"
+            className="menu-item-icon"
+          />
         </div>
       </div>
       <nav className="sidebar-main">
@@ -36,22 +35,24 @@ const Sidebar = () => {
           <h5 className="sidebar-section-title">MENU</h5>
           <ul>
             <MenuItem
-              icon={<DashboardIcon className="menu-item-icon" />}
+              icon={DashboardIcon}
               menuItemText="Dashboard"
               href="/dashboard"
             />
+
             <MenuItem
-              icon={<CoursesIcon className="menu-item-icon" />}
+              icon={CoursesIcon}
               menuItemText="Courses"
               href="/courses"
             />
+
             <MenuItem
-              icon={<CalendarIcon className="menu-item-icon" />}
+              icon={CalendarIcon}
               menuItemText="Calendar"
               href="/calendar"
             />
             <MenuItem
-              icon={<LiveClassIcon className="menu-item-icon" />}
+              icon={LiveClassIcon}
               menuItemText="Live Class"
               href="/liveclass"
             />
@@ -61,35 +62,21 @@ const Sidebar = () => {
           <h5 className="sidebar-section-title">GENERAL</h5>
           <ul>
             <MenuItem
-              icon={<ProfileIcon className="menu-item-icon" />}
+              icon={ProfileIcon}
               menuItemText="Profile"
               href="/profile"
             />
             <MenuItem
-              icon={
-                <>
-                  <ProfileIcon className="menu-item-icon" />
-                  <ProfileIcon className="menu-item-icon" />
-                </>
-              }
-              menuItemText="Team"
-              href="/team"
-            />
-            <MenuItem
-              icon={<SettingsIcon className="menu-item-icon" />}
+              icon={SettingsIcon}
               menuItemText="Settings"
               href="/settings"
             />
             <MenuItem
-              icon={<HelpCenterIcon className="menu-item-icon" />}
+              icon={HelpCenterIcon}
               menuItemText="Help Center"
               href="/helpcenter"
             />
-            <MenuItem
-              icon={<LogoutIcon className="menu-item-icon" />}
-              menuItemText="Log Out"
-              href="#"
-            />
+            <MenuItem icon={LogoutIcon} menuItemText="Log Out" href="#" />
           </ul>
         </div>
         <div className="sidebar-download-app">
