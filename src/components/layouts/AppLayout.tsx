@@ -1,6 +1,7 @@
 import Sidebar from "../navigation/Sidebar";
 import Image from "next/image";
 import { profileImg } from "@/app/assets";
+import InputFormGroup from "@/components/forms/InputFormGroup";
 
 type AppLayoutProps = {
   children: React.ReactNode;
@@ -18,7 +19,13 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
             <p>email</p>
             <p>notification</p>
             <div className="header-user">
-              <Image src={profileImg} alt="" />
+              <Image
+                src={profileImg}
+                alt="Profilbild"
+                width={40}
+                height={40}
+                className="profile-avatar"
+              />
               <div className="header-user-right">
                 <p>Namn Efternamn</p>
                 <p>Email</p>

@@ -64,16 +64,15 @@ a {
   height: 70px;
   /* border: 1px solid black; */
 }
-.header-right-column{
+.header-right-column {
   display: flex;
   align-items: center;
 }
 .main {
   /* border: 1px solid black; */
-
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,10 +81,10 @@ a {
   padding: 1.5rem 2rem;
 }
 
-.header-right-column{
+.header-right-column {
   display: flex;
   gap: 4rem;
-  .header-user{
+  .header-user {
     display: flex;
     align-items: center;
   }
@@ -158,12 +157,14 @@ a {
 .menu-item-icon {
   display: flex;
   color: var(--color-secondary);
+  width: 20px;
+  height: 20px;
 }
 
 .sidebar-download-app {
   /* margin-top: auto; */
   margin-top: 2rem;
-  background-image: url("../app/assets/images/rectangle.png");
+  background-image: url("/assets/images/rectangle.png");
   width: 100%;
   height: 148px;
   border-radius: var(--radius-xl);
@@ -216,4 +217,3 @@ button {
 .active .menu-item-icon {
   color: var(--color-white);
 }
-
