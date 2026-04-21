@@ -1,7 +1,6 @@
 import Sidebar from "../navigation/Sidebar";
 import Image from "next/image";
 import { profileImg } from "@/app/assets";
-import InputFormGroup from "@/components/forms/InputFormGroup";
 
 type AppLayoutProps = {
   children: React.ReactNode;
