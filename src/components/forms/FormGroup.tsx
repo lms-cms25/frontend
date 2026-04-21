@@ -4,6 +4,7 @@ type FormGroupProps = {
   type: string;
   placeholder: string;
   errorMessage: string;
+  icon?: string;
 };
 
 const FormGroup = ({
@@ -12,18 +13,18 @@ const FormGroup = ({
   type,
   placeholder,
   errorMessage,
+  icon,
+  ...props
 }: FormGroupProps) => {
   return (
     <div className="form-group">
       <label className="form-label" htmlFor={id}>
         {label}
       </label>
-      <input
-        type={type}
-        id={id}
-        className="form-input"
-        placeholder={placeholder}
-      />
+      <div className={`input-container ${icon ? "has-icon" : ""}`}>
+        {icon && <img src={icon} className="input-icon" alt="" />}
+        <input {...props} id={id} className="form-input" />
+      </div>
       <span className="field-validation-error">{errorMessage}</span>
     </div>
   );

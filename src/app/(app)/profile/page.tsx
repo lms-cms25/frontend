@@ -11,6 +11,7 @@ const page = () => {
           type="text"
           placeholder="Enter your first name"
           errorMessage="Name is required"
+          icon="/assets/icons/profile-icon.svg"
         />
         <FormGroup
           label="Last Name"
@@ -18,6 +19,7 @@ const page = () => {
           type="text"
           placeholder="Enter your last name"
           errorMessage="Last name is required"
+          icon="/assets/icons/profile-icon.svg"
         />
         <button type="submit" className="primary-btn btn-small">
           Save
