@@ -1,12 +1,13 @@
 import FormGroup from "@/components/forms/FormGroup";
 
+
 export default function Page() {
   return (
     <div style={{ display: "flex", gap: "24px" }}>
       {/* LEFT SIDE */}
       <div style={{ width: "35%" }}>
         <h2 style={{ fontSize: "25px" }}>Profile</h2>
-        <div style={{ background: "#fff", marginTop: 100, padding: "5px",height: 600, borderRadius: "12px" }}>
+        <div style={{ background: "#fff", marginTop: 100, padding: "5px",height: "700px", borderRadius: "12px" }}>
           
           {/* Cover + Avatar */}
           <div style={{ height: "120px", background: "#ddd", borderRadius: "12px" }} />
@@ -32,9 +33,9 @@ export default function Page() {
       </div>
               
       {/* RIGHT SIDE */}
-      <div style={{ width: "65%", background: "#fff", padding: "16px", borderRadius: "12px" }}>
+      <div style={{ width: "65%", background: "#fff", padding: "16px", borderRadius: "12px", marginTop: "125px"}}>
 
-        <form style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        <form style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "120px" }}>
           
           <input type="file" />
 
@@ -64,8 +65,9 @@ export default function Page() {
 
           {/* Buttons */}
           <div style={{ display: "flex", gap: "10px" }}>
-            <button type="button">Cancel</button>
-            <button type="submit">Save</button>
+            <button className="primary-btn btn-small" type="button">Cancel</button>
+            <button className="primary-btn btn-small"  type="submit">Save</button>
+
           </div>
         </form>
       </div>
