@@ -1,0 +1,155 @@
+/* Hela området i mitten */
+.coursesSection {
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Övre del */
+.topBlock {
+  margin-bottom: 28px;
+}
+
+/* Titel */
+.blockTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 18px 0;
+}
+
+/* Rad för kategorier */
+.tagsRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* En kategori-knapp */
+.tag {
+  padding: 12px 22px;
+  border: 1px solid #ececec;
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 15px;
+  color: #374151;
+  white-space: nowrap;
+}
+
+/* Titelrad för All Courses */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Text till höger */
+.seeAll {
+  font-size: 14px;
+  color: #e97a52;
+  cursor: pointer;
+}
+
+/* Grid: 2 kort i rad */
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 28px;
+}
+
+/* Ett kurskort */
+.courseCard {
+  background: #ffffff;
+}
+
+/* Bild i kortet */
+.courseImage {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+/* Textdel */
+.cardContent {
+  padding-top: 14px;
+}
+
+/* Kursnamn */
+.courseTitle {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111827;
+}
+
+/* Rad med lärare och rating */
+.courseMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9ca3af;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+/* Liten grå punkt */
+.metaDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Namn */
+.instructor {
+  color: #9ca3af;
+}
+
+/* Punkt mellan */
+.metaSeparator {
+  color: #b7b7b7;
+}
+
+/* Rating */
+.rating {
+  color: #4b5563;
+}
+
+/* Knapp */
+.enrollButton {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f08a57 0%, #db623d 100%);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Hover på knapp */
+.enrollButton:hover {
+  opacity: 0.95;
+}
+
+/* Responsiv */
+@media (max-width: 1100px) {
+  .coursesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .courseTitle {
+    font-size: 22px;
+  }
+
+  .enrollButton {
+    font-size: 18px;
+  }
+}
