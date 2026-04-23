@@ -1,34 +1,45 @@
-type Props = {
-  params: { id: string };
+// Importerar kursdata
+import { courses } from "../data";
+
+// Typ för params från URL
+type CourseDetailsPageProps = {
+  params: Promise<{ id: string }>;
 };
 
-export default function CourseDetailsPage({ params }: Props) {
-  const courses = [
-    {
-      id: "1",
-      title: "Frontend Development",
-      description: "Learn frontend step by step",
-      instructor: "Anna Berg",
-    },
-    {
-      id: "2",
-      title: "Backend Development",
-      description: "Learn backend with .NET",
-      instructor: "Johan Nilsson",
-    },
-  ];
+// Sida för kursdetaljer
+export default async function CourseDetailsPage({
+  params,
+}: CourseDetailsPageProps) {
+  // Hämtar id från URL
+  const { id } = await params;
 
-  const course = courses.find((c) => c.id === params.id);
+  // Hittar rätt kurs
+  const course = courses.find((c) => c.id === Number(id));
 
+  // Om kursen inte finns
   if (!course) {
-    return <div>Course not found</div>;
+    return <h2>Course not found</h2>;
   }
 
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
+      {/* Titel */}
       <h1>{course.title}</h1>
-      <p>{course.description}</p>
+
+      {/* Bild */}
+      <img
+        src={course.image}
+        alt={course.title}
+        style={{ width: "400px", height: "auto" }}
+      />
+
+      {/* Instruktör */}
       <p>Instructor: {course.instructor}</p>
+
+      {/* Betyg */}
+      <p>Rating: ⭐ {course.rating}</p>
+
+      {/* Knapp */}
       <button>Enroll</button>
     </div>
   );
