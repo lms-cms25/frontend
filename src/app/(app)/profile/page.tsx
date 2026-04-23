@@ -26,8 +26,15 @@ function page() {
 
       <div className="right">
         <form className="form">
-
-          <input type="file" />
+          <div className="upload-row">
+            <div className="image-placeholder">
+              <span>No image</span>
+            </div>
+            <label className="upload-btn">
+              Upload file
+              <input type="file" hidden />
+            </label>
+          </div>
 
           <FormGroup
             label="First Name"
