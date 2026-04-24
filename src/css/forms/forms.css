@@ -39,6 +39,26 @@ form {
     }
   }
 
+  .form-textarea {
+    padding: 0.7rem;
+    border-radius: 10px;
+    outline: none;
+    background-color: var(--form-input-background-color);
+    border: 2px solid var(--form-input-border-color);
+    color: var(--form-input-text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+
+    &::placeholder {
+      font-size: 1rem;
+      opacity: 0.3;
+    }
+    &::after {
+      content: "Example: ";
+    }
+  }
+
   .form-checkbox {
     height: 15px;
     width: 15px;

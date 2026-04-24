@@ -1,58 +1,53 @@
 import FormGroup from "@/components/forms/FormGroup";
+import "./profile.css";
 
-
-export default function Page() {
+function page() {
   return (
-    <div style={{ display: "flex", gap: "24px" }}>
-      {/* LEFT SIDE */}
-      <div style={{ width: "35%" }}>
-        <h2 style={{ fontSize: "25px" }}>Profile</h2>
-        <div style={{ background: "#fff", marginTop: 100, padding: "5px",height: "700px", borderRadius: "12px" }}>
-          
-          {/* Cover + Avatar */}
-          <div style={{ height: "120px", background: "#ddd", borderRadius: "12px" }} />
-          <div style={{ marginTop: "-30px", textAlign: "center" }}>
-            <div
-              style={{
-                width: "60px",
-                height: "60px",
-                borderRadius: "50%",
-                background: "#aaa",
-                margin: "0 auto",
-              }}
-            />
+    <div className="page">
+
+      <div className="left">
+        <h2 className="title">Profile</h2>
+
+        <div className="card-large">
+          <div className="cover" />
+
+          <div className="avatar-wrapper">
+            <div className="avatar" />
+            <h3 className="profile-name">Profile Name</h3>
           </div>
-          <h3 style={{ fontSize: "18px", textAlign: "center", marginTop: 5}}>
-            Profile Name
-          </h3>
-          {/* Bio */}
-          <p style={{ fontSize: "12px", color: "#666" }}>
-            Short bio text goes here...
-          </p>
+          <div className="bio-wrapper">
+            <h2 className="bio-h">Bio</h2>
+            <div className="card-medium">
+              <p className="bio-p">Short bio text goes here...</p>
+            </div>
+          </div>
         </div>
       </div>
-              
-      {/* RIGHT SIDE */}
-      <div style={{ width: "65%", background: "#fff", padding: "16px", borderRadius: "12px", marginTop: "125px"}}>
 
-        <form style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "120px" }}>
-          
-          <input type="file" />
+      <div className="right">
+        <form className="form">
+          <div className="upload-row">
+            <div className="image-placeholder">
+              <span>No image</span>
+            </div>
+            <label className="upload-btn">
+              Upload file
+              <input type="file" hidden />
+            </label>
+          </div>
 
           <FormGroup
-            label="First name"
+            label="First Name"
             id="firstName"
             type="text"
             placeholder="Enter first name"
           />
-
           <FormGroup
-            label="Last name"
+            label="Last Name"
             id="lastName"
             type="text"
             placeholder="Enter last name"
           />
-
           <FormGroup
             label="Phone number"
             id="phone"
@@ -60,17 +55,18 @@ export default function Page() {
             placeholder="Enter phone number"
           />
 
-          <label>Description</label>
-          <textarea rows={5} placeholder="Write something..." />
+          <label className="form-label">Description</label>
+          <textarea className="form-textarea"></textarea>
 
-          {/* Buttons */}
-          <div style={{ display: "flex", gap: "10px" }}>
+          <div className="button-row">
             <button className="primary-btn btn-small" type="button">Cancel</button>
-            <button className="primary-btn btn-small"  type="submit">Save</button>
-
+            <button className="primary-btn btn-small" type="submit">Save</button>
           </div>
         </form>
       </div>
+
     </div>
-  );
+  )
 }
+
+export default page;
