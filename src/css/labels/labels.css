@@ -1,0 +1,13 @@
+.label {
+    border-radius: 15px;
+}
+
+.label-orange-on-orange {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary)
+}
+
+.label-small {
+    font-size: 12px;
+    padding: 6px 12px;
+}

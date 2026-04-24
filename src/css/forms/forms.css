@@ -49,6 +49,7 @@ form {
     font-size: 1rem;
     font-weight: 500;
     font-family: var(--font-body);
+    height: 150px;
 
     &::placeholder {
       font-size: 1rem;

@@ -4,6 +4,7 @@ import "../css/globals.css";
 import "../css/theme.css";
 import "../css/buttons/buttons.css";
 import "../css/forms/forms.css";
+import "../css/labels/labels.css";
 
 const archivo = Archivo({
   subsets: ["latin"],
