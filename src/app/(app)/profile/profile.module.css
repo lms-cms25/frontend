@@ -66,16 +66,9 @@
   margin-top: 5px;
 }
 
-/* 
-.labell {
-  display: inline-block;
+.roleWrapper {
   margin-top: 6px;
-
-  padding: 4px 10px;
-  border: 1px solid #000;
-  background-color:;
-  border-radius: 15px;
-} */
+}
 
 .bioH {
   font-size: 20px;

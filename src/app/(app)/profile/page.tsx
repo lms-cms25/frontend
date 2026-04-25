@@ -22,7 +22,7 @@ function Page() {
               alt="avatar"
             />
             <h3 className={styles.profileName}>Profile Name</h3>
-            <div>
+            <div className={styles.roleWrapper}>
               <span className="label label-orange-on-orange label-small">Student</span>
             </div>
           </div>
