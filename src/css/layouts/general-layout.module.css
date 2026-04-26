@@ -1,0 +1,24 @@
+.header{
+    margin-bottom: 2rem;
+}
+
+.navContainer{
+    display: flex;
+    gap: 1rem;
+    max-width: 40rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.navLink{
+    font-size: var(--font-size-base);
+    color: var(--text-light-color);
+
+    padding: .5rem 1rem;
+    border-radius: var(--radius-xs);
+}
+
+.active{
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+}
