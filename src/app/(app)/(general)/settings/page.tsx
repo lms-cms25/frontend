@@ -1,8 +1,7 @@
+import { redirect } from "next/navigation"
 
 const page = () => {
-  return (
-    <div>settings</div>
-  )
+    redirect("/settings/password")
 }
 
 export default page

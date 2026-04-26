@@ -6,7 +6,6 @@ import styles from "../../css/layouts/general-layout.module.css";
 const NAV_ITEMS = [
   { path: "/profile", label: "General" },
   { path: "/team", label: "Team" },
-  { path: "/settings", label: "Settings" },
   { path: "/settings/password", label: "Password" },
   { path: "/settings/notification", label: "Notification" },
 ];
