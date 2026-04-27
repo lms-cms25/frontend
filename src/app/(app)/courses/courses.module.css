@@ -123,15 +123,31 @@
 
 /* Knapp */
 .enrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
-  height: 56px;
-  border: none;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #f08a57 0%, #db623d 100%);
+  height: 42px;
+  margin-top: 16px;
+
+  background: linear-gradient(90deg, #f28c45, #d94b2b);
   color: #ffffff;
-  font-size: 20px;
-  font-weight: 600;
+
+  border: none;
+  border-radius: 14px;
+
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.enrollButton:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 /* Hover på knapp */
