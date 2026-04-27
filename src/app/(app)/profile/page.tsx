@@ -1,36 +1,51 @@
 import FormGroup from "@/components/forms/FormGroup";
-import "./profile.css";
+import styles from "./profile.module.css";
 
-function page() {
+function Page() {
   return (
-    <div className="page">
+    <div className={styles.page}>
 
-      <div className="left">
-        <h2 className="title">Profile</h2>
+      <div className={styles.left}>
+        <h2 className={styles.title}>Profile</h2>
 
-        <div className="card-large">
-          <div className="cover" />
+        <div className={styles.cardLarge}>
+          <img
+            className={styles.cover}
+            src="/assets/images/cover.svg"
+            alt="cover"
+          />
 
-          <div className="avatar-wrapper">
-            <div className="avatar" />
-            <h3 className="profile-name">Profile Name</h3>
+          <div className={styles.avatarWrapper}>
+            <img
+              className={styles.avatar}
+              src="/assets/images/avatar.svg"
+              alt="avatar"
+            />
+            <h3 className={styles.profileName}>Profile Name</h3>
+            <div className={styles.roleWrapper}>
+              <span className="label label-orange-on-orange label-small">Student</span>
+            </div>
           </div>
-          <div className="bio-wrapper">
-            <h2 className="bio-h">Bio</h2>
-            <div className="card-medium">
-              <p className="bio-p">Short bio text goes here...</p>
+          <div className={styles.bioWrapper}>
+            <h2 className={styles.bioH}>Bio</h2>
+            <div className={styles.cardMedium}>
+              <p className={styles.bioP}>
+                Short bio text goes here...
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="right">
-        <form className="form">
-          <div className="upload-row">
-            <div className="image-placeholder">
+      <div className={styles.right}>
+        <form className={styles.form}>
+
+          <div className={styles.uploadRow}>
+            <div className={styles.imagePlaceholder}>
               <span>No image</span>
             </div>
-            <label className="upload-btn">
+
+            <label className={styles.uploadBtn}>
               Upload file
               <input type="file" hidden />
             </label>
@@ -58,15 +73,20 @@ function page() {
           <label className="form-label">Description</label>
           <textarea className="form-textarea"></textarea>
 
-          <div className="button-row">
-            <button className="primary-btn btn-small" type="button">Cancel</button>
-            <button className="primary-btn btn-small" type="submit">Save</button>
+          <div className={styles.buttonRow}>
+            <button className="primary-btn btn-normal" type="button">
+              Cancel
+            </button>
+            <button className="primary-btn btn-normal" type="submit">
+              Save
+            </button>
           </div>
+
         </form>
       </div>
 
     </div>
-  )
+  );
 }
 
-export default page;
+export default Page;

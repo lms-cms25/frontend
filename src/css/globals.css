@@ -68,10 +68,6 @@ a {
   display: flex;
   align-items: center;
 }
-.main {
-  border: 1px solid black;
-
-}
 
 .header{
   display: flex;
