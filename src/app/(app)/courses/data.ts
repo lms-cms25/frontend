@@ -6,6 +6,11 @@ export const courses = [
     rating: 5,
     image: "/images/course1.jpg",
     category: "Graphic Design",
+    description:
+      "Learn the basics of machine learning and understand how AI models can be used in real digital products.",
+    duration: "6 weeks",
+    level: "Beginner",
+    students: 1200,
   },
   {
     id: 2,
@@ -14,6 +19,11 @@ export const courses = [
     rating: 5,
     image: "/images/course2.jpg",
     category: "UI/UX Design",
+    description:
+      "Learn how to analyze business data and use insights to make better strategic decisions.",
+    duration: "8 weeks",
+    level: "Intermediate",
+    students: 950,
   },
   {
     id: 3,
@@ -22,6 +32,11 @@ export const courses = [
     rating: 5,
     image: "/images/course3.jpg",
     category: "Brand Identity",
+    description:
+      "Learn how to plan, create and structure content that supports a strong digital brand.",
+    duration: "5 weeks",
+    level: "Beginner",
+    students: 740,
   },
   {
     id: 4,
@@ -30,6 +45,11 @@ export const courses = [
     rating: 5,
     image: "/images/course4.jpg",
     category: "Web Design",
+    description:
+      "Learn the fundamentals of product design, user flows, wireframes and visual structure.",
+    duration: "7 weeks",
+    level: "Beginner",
+    students: 880,
   },
   {
     id: 5,
@@ -38,6 +58,11 @@ export const courses = [
     rating: 4,
     image: "/images/course5.jpg",
     category: "Development",
+    description:
+      "Learn backend development basics, APIs, databases and how server-side logic works.",
+    duration: "10 weeks",
+    level: "Intermediate",
+    students: 1100,
   },
   {
     id: 6,
@@ -46,5 +71,10 @@ export const courses = [
     rating: 5,
     image: "/images/course6.jpg",
     category: "Design",
+    description:
+      "Learn how to create interactive prototypes and clean UI designs using Adobe XD.",
+    duration: "4 weeks",
+    level: "Beginner",
+    students: 630,
   },
 ];
