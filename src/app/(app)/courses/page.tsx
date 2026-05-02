@@ -1,53 +1,74 @@
+"use client"; // важно!
+
 import Link from "next/link";
 import styles from "./courses.module.css";
-import { courses } from "./data"; 
+import { courses } from "./data";
+import { useState } from "react";
 
 // Huvudkomponent för courses-sidan
 export default function CoursesPage() {
+  // State för sök
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+
+  // Filtrerar kurser
+  const filteredCourses = courses.filter((course) => {
+    const matchSearch = course.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    const matchCategory = category
+      ? course.category === category
+      : true;
+
+    return matchSearch && matchCategory;
+  });
+
   return (
     <section className={styles.coursesSection}>
-      {/* Övre rad */}
-      <div className={styles.topBlock}>
-        <h2 className={styles.blockTitle}>Popular This Week</h2>
+      {/* Sökfält */}
+      <input
+        type="text"
+        placeholder="Search courses..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className={styles.searchInput}
+      />
 
-        <div className={styles.tagsRow}>
-          <div className={styles.tag}>Graphic Design</div>
-          <div className={styles.tag}>UI/UX Design</div>
-          <div className={styles.tag}>Brand Identity</div>
-          <div className={styles.tag}>Web Design</div>
+      {/* Kategorier */}
+      <div className={styles.tagsRow}>
+        <div onClick={() => setCategory("")} className={styles.tag}>
+          All
         </div>
-      </div>
-
-      {/* Titel */}
-      <div className={styles.headerRow}>
-        <h2 className={styles.blockTitle}>All Courses</h2>
-        <span className={styles.seeAll}>See All</span>
+        <div onClick={() => setCategory("Graphic Design")} className={styles.tag}>
+          Graphic Design
+        </div>
+        <div onClick={() => setCategory("UI/UX Design")} className={styles.tag}>
+          UI/UX Design
+        </div>
+        <div onClick={() => setCategory("Development")} className={styles.tag}>
+          Development
+        </div>
       </div>
 
       {/* Grid */}
       <div className={styles.coursesGrid}>
-        {courses.map((course) => (
+        {filteredCourses.map((course) => (
           <article key={course.id} className={styles.courseCard}>
-            
-            {/* Bild */}
             <img
               src={course.image}
               alt={course.title}
               className={styles.courseImage}
             />
 
-            {/* Innehåll */}
             <div className={styles.cardContent}>
               <h3 className={styles.courseTitle}>{course.title}</h3>
 
               <div className={styles.courseMeta}>
-                <span className={styles.metaDot}></span>
-                <span className={styles.instructor}>{course.instructor}</span>
-                <span className={styles.metaSeparator}>·</span>
-                <span className={styles.rating}>⭐ {course.rating}</span>
+                <span>{course.instructor}</span>
+                <span>· ⭐ {course.rating}</span>
               </div>
 
-              {/* Knapp */}
               <Link
                 href={`/courses/${course.id}`}
                 className={styles.enrollButton}
