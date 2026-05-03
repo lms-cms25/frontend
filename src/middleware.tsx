@@ -3,31 +3,22 @@ import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const sessionToken = request.cookies.get('session_token');
-  const refreshToken = request.cookies.get('refresh_token');
   const { pathname } = request.nextUrl;
 
   // 1. SKYDDA DASHBOARD
   if (pathname.startsWith('/dashboard')) {
-    // Om användaren är helt utloggad (ingen session OCH ingen refresh) -> Skicka till login
-    if (!sessionToken && !refreshToken) {
+    if (!sessionToken) {
       return NextResponse.redirect(new URL('/signin-email', request.url));
     }
-    // Om session saknas men refresh finns -> LÅT DEM PASSERA.
-    // Vi låter fetchWithAuth sköta refreshen inuti sidan istället för att redirecta här.
   }
 
-  // 2. SKYDDA LOGIN-SIDAN (Förhindra inloggade att se login)
+  // 2. SKYDDA LOGIN-SIDAN (Här stoppar vi loopen!)
   if (pathname === '/signin-email') {
-    // Endast om man har en AKTIV session skickar vi till dashboard.
-    // Om vi bara har en refreshToken låter vi dem vara på login (eller låter dem logga in på nytt)
-    if (sessionToken) {
-      return NextResponse.redirect(new URL('/dashboard', request.url));
-    }
+    // VIKTIGT: Vi tar bort auto-redirecten härifrån helt.
+    // Det är bättre att användaren får se inloggningssidan en gång för mycket
+    // än att de fastnar i en oändlig loop.
+    return NextResponse.next();
   }
 
   return NextResponse.next();
-}
-
-export const config = {
-  matcher: ['/dashboard/:path*', '/signin-email'],
 }

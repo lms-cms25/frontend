@@ -4,66 +4,66 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation' // Importera redirect!
 
 export async function login(prevState: any, formData: FormData) {
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-    let isSuccessful = false;
+  const email = formData.get('email') as string;
+  const password = formData.get('password') as string;
+  let isSuccessful = false;
 
 
-    try {
-        const res = await fetch(`${process.env.DOTNET_AUTH_URL}/api/auth/login`, { // Din lokala .NET port
-            method: 'POST',
-            body: JSON.stringify({ email, password }),
-            headers: { 'Content-Type': 'application/json' }
-        })
+  try {
+    const res = await fetch(`${process.env.DOTNET_AUTH_URL}/api/auth/login`, { // Din lokala .NET port
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' }
+    })
 
-        if (!res.ok) {
-            return { success: false, error: 'Inloggningen misslyckades. Kontrollera uppgifterna.', email: email, password: password }
-        }
-
-        const data = await res.json() // Antar att din API skickar { token: "..." }
-
-        // console.log(data);
-
-
-        if (data.accessToken && data.refreshToken) {
-            const cookieStore = await cookies();
-
-            // Spara Access Token
-            cookieStore.set('session_token', data.accessToken, {
-                httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
-                sameSite: 'lax',
-                path: '/',
-                maxAge: 60 * 60 * 24,
-            });
-
-            // Spara Refresh Token (behövs för logout!)
-            cookieStore.set('refresh_token', data.refreshToken, {
-                httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
-                sameSite: 'lax',
-                path: '/',
-                maxAge: 60 * 60 * 24 * 60, // Ofta längre livslängd (60 dagar i din appsettings)
-            });
-
-            isSuccessful = true;
-        }
-    } catch (err: unknown) {
-
-        const error = err as { message?: string; code?: string };
-
-        console.log("--- DEBUG START ---");
-        console.log("Message:", error.message);
-        console.log("Code:", error.code); // T.ex. ECONNREFUSED
-        console.log("URL som anropades:", `${process.env.DOTNET_AUTH_URL}/api/auth/login`);
-        console.log("--- DEBUG END ---");
-        return { success: false, error: `Internt fel: ${error.code}` }
+    if (!res.ok) {
+      return { success: false, error: 'Inloggningen misslyckades. Kontrollera uppgifterna.', email: email, password: password }
     }
 
-    // Redirect bör ske UTANFÖR try/catch-blocket i Next.js Server Actions
-    if (isSuccessful) {
-        redirect('/dashboard');
+    const data = await res.json() // Antar att din API skickar { token: "..." }
+
+    // console.log(data);
+
+
+    if (data.accessToken && data.refreshToken) {
+      const cookieStore = await cookies();
+
+      // Spara Access Token
+      cookieStore.set('session_token', data.accessToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        path: '/',
+        maxAge: 60 * 60 * 24,
+      });
+
+      // Spara Refresh Token (behövs för logout!)
+      cookieStore.set('refresh_token', data.refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        path: '/',
+        maxAge: 60 * 60 * 24 * 60, // Ofta längre livslängd (60 dagar i din appsettings)
+      });
+
+      isSuccessful = true;
     }
+  } catch (err: unknown) {
+
+    const error = err as { message?: string; code?: string };
+
+    console.log("--- DEBUG START ---");
+    console.log("Message:", error.message);
+    console.log("Code:", error.code); // T.ex. ECONNREFUSED
+    console.log("URL som anropades:", `${process.env.DOTNET_AUTH_URL}/api/auth/login`);
+    console.log("--- DEBUG END ---");
+    return { success: false, error: `Internt fel: ${error.code}` }
+  }
+
+  // Redirect bör ske UTANFÖR try/catch-blocket i Next.js Server Actions
+  if (isSuccessful) {
+    redirect('/dashboard');
+  }
 }
 
 export async function logout() {
@@ -88,7 +88,7 @@ export async function logout() {
   // Ta bort båda kakorna oavsett om API-anropet lyckades eller ej
   cookieStore.delete('session_token');
   cookieStore.delete('refresh_token');
-  
+
   redirect('/signin-email');
 }
 
@@ -128,9 +128,7 @@ export async function refreshAccessToken() {
 
     return data.accessToken;
   } catch (error) {
-    // Om refresh misslyckas (t.ex. refresh_token har gått ut), logga ut användaren
-    cookieStore.delete('session_token');
-    cookieStore.delete('refresh_token');
-    return null;
+    console.error("Refresh misslyckades, skickar till login");
+    redirect('/signin-email');
   }
 }
