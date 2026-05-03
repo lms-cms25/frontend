@@ -1,6 +1,9 @@
+'use client'
+
 import MenuItem from "../navigation/MenuItem";
 import Link from "next/link";
 import Image from "next/image";
+import { logout } from "@/lib/actions/auth";
 import {
   CalendarIcon,
   CoursesIcon,
@@ -16,6 +19,9 @@ import {
 } from "@/app/assets";
 
 const Sidebar = () => {
+
+
+
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -89,6 +95,7 @@ const Sidebar = () => {
               icon={<LogoutIcon className="menu-item-icon" />}
               menuItemText="Log Out"
               href="#"
+              onClick={() => logout()}
             />
           </ul>
         </div>
