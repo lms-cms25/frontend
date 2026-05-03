@@ -4,6 +4,8 @@ type FormGroupProps = {
   type: string;
   placeholder: string;
   errorMessage?: string;
+  name?: string;
+  defaultValue: string;
 };
 
 const FormGroup = ({
@@ -12,6 +14,8 @@ const FormGroup = ({
   type,
   placeholder,
   errorMessage,
+  name,
+  defaultValue
 }: FormGroupProps) => {
   return (
     <div className="form-group">
@@ -25,6 +29,8 @@ const FormGroup = ({
         id={id}
         className="form-input"
         placeholder={placeholder}
+        name={name}
+        defaultValue={defaultValue}
       />
 
       {errorMessage && (
