@@ -1,7 +1,7 @@
 
 const page = () => {
   return (
-    <div>settings</div>
+    <div>notification page</div>
   )
 }
 
