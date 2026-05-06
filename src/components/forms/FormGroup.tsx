@@ -4,6 +4,7 @@ type FormGroupProps = {
   type: string;
   placeholder: string;
   errorMessage?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const FormGroup = ({
@@ -12,6 +13,7 @@ const FormGroup = ({
   type,
   placeholder,
   errorMessage,
+  onChange,
 }: FormGroupProps) => {
   return (
     <div className="form-group">
@@ -25,6 +27,7 @@ const FormGroup = ({
         id={id}
         className="form-input"
         placeholder={placeholder}
+        onChange={onChange}
       />
 
       {errorMessage && (
