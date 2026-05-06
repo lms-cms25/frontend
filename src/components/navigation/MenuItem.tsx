@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 
 
@@ -12,8 +13,14 @@ type MenuItemProps = {
 
 const MenuItem = ({ icon, menuItemText, href }: MenuItemProps) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
-
+  const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+  useEffect(() => {
+    if(!isActive) return;
+    // console.log(href);
+    console.log(pathname);
+    
+  })
+  
   return (
     <li>
       <Link href={href} className={`menu-item ${isActive ? "active" : ""}`}>

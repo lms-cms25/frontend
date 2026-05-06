@@ -15,6 +15,7 @@ import logoShikoIcon from "./images/logo-shiko.png";
 import notFoundImg from "./images/not-found.png";
 import profileImg from "./images/profile-image.png"
 import liveClassImg from "./images/live-class.png"
+import authImg from "./images/auth-img.png"
 
 export {
   logoBookIcon,
@@ -30,5 +31,6 @@ export {
   SettingsIcon,
   SidebarIcon,
   profileImg,
-  liveClassImg
+  liveClassImg,
+  authImg
 };

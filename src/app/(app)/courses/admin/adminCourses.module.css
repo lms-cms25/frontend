@@ -1,0 +1,74 @@
+.adminSection {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background-color: var(--sidebar-background-color);
+  border-radius: var(--radius-xl);
+}
+
+.adminTitle {
+  font-size: 28px;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  background-color: var(--body-background-color);
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  margin-bottom: 2rem;
+}
+
+.form input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ececec;
+  border-radius: var(--radius-xs);
+}
+
+.submitButton {
+  height: 44px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-xs);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+}
+
+.courseList {
+  display: grid;
+  gap: 1rem;
+}
+
+.courseItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--body-background-color);
+  padding: 1rem;
+  border-radius: var(--radius-xl);
+}
+
+.actions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: var(--radius-xs);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.editButton {
+  background-color: var(--color-primary);
+}
+
+.deleteButton {
+  background-color: #ef4444;
+}
