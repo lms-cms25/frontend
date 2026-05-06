@@ -1,12 +1,65 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import FormGroup from "@/components/forms/FormGroup";
+import { getProfile, updateProfile } from "./profileService";
 import styles from "./profile.module.css";
 
 function Page() {
+  const [formData, setFormData] = useState({
+    userId: "test123",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    description: "",
+  });
+
+  // LOAD PROFILE (GET)
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const data = await getProfile("test123");
+
+        if (data) {
+          setFormData(data);
+        }
+      } catch (err) {
+        console.error("ERROR loading profile:", err);
+      }
+    };
+
+    load();
+  }, []);
+
+  // HANDLE INPUT
+  const handleChange = (e: any) => {
+    const { id, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  // SAVE (PUT)
+  const handleSubmit = async (e: any) => {
+  e.preventDefault();
+    try {
+      await updateProfile(formData);
+
+      // const updated = await getProfile(formData.userId);
+
+      // setFormData(updated); // sync med DB
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className={styles.page}>
 
+      {/* LEFT SIDE */}
       <div className={styles.left}>
-        <h2 className={styles.title}>Profile</h2>
 
         <div className={styles.cardLarge}>
           <img
@@ -21,24 +74,32 @@ function Page() {
               src="/assets/images/avatar.svg"
               alt="avatar"
             />
-            <h3 className={styles.profileName}>Profile Name</h3>
+
+            <h3 className={styles.profileName}>
+              {formData.firstName} {formData.lastName}
+            </h3>
+
             <div className={styles.roleWrapper}>
-              <span className="label label-orange-on-orange label-small">Student</span>
+              <span className="label label-orange-on-orange label-small">
+                Student
+              </span>
             </div>
           </div>
+
           <div className={styles.bioWrapper}>
             <h2 className={styles.bioH}>Bio</h2>
             <div className={styles.cardMedium}>
               <p className={styles.bioP}>
-                Short bio text goes here...
+                {formData.description || "Short bio text goes here..."}
               </p>
             </div>
           </div>
         </div>
       </div>
 
+      {/* RIGHT SIDE */}
       <div className={styles.right}>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
 
           <div className={styles.uploadRow}>
             <div className={styles.imagePlaceholder}>
@@ -56,28 +117,39 @@ function Page() {
             id="firstName"
             type="text"
             placeholder="Enter first name"
+            onChange={handleChange}
           />
+
           <FormGroup
             label="Last Name"
             id="lastName"
             type="text"
             placeholder="Enter last name"
+            onChange={handleChange}
           />
+
           <FormGroup
             label="Phone number"
             id="phone"
             type="tel"
             placeholder="Enter phone number"
+            onChange={handleChange}
           />
 
           <label className="form-label">Description</label>
-          <textarea className="form-textarea"></textarea>
+          <textarea
+            id="description"
+            className="form-textarea"
+            onChange={handleChange}
+            value={formData.description}
+          />
 
           <div className={styles.buttonRow}>
-            <button className="primary-btn btn-normal" type="button">
+            <button type="button" className="primary-btn btn-normal">
               Cancel
             </button>
-            <button className="primary-btn btn-normal" type="submit">
+
+            <button type="submit" className="primary-btn btn-normal">
               Save
             </button>
           </div>
