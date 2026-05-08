@@ -43,16 +43,6 @@ const Sidebar = () => {
           </ul>
         </div>
         <div className="sidebar-section">
-          <h5 className="sidebar-section-title">Classes</h5>
-          <ul>
-            <MenuItem
-              icon={<ProfileIcon className="menu-item-icon" />}
-              menuItemText="Classes"
-              href="/"
-            />
-          </ul>
-        </div>
-        <div className="sidebar-section">
           <h5 className="sidebar-section-title">PROGRAMS</h5>
           <ul>
             <MenuItem
