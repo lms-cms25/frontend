@@ -46,6 +46,11 @@ const Sidebar = () => {
               href="/courses"
             />
             <MenuItem
+              icon={<CoursesIcon className="menu-item-icon" />}
+              menuItemText="Programs"
+              href="/programs"
+            />
+            <MenuItem
               icon={<CalendarIcon className="menu-item-icon" />}
               menuItemText="Calendar"
               href="/calendar"
