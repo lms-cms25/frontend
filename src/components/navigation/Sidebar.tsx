@@ -12,7 +12,7 @@ import {
   ProfileIcon,
   SettingsIcon,
   SidebarIcon,
-  logoShikoIcon
+  logoShikoIcon,
 } from "@/app/assets";
 
 const Sidebar = () => {
@@ -32,6 +32,16 @@ const Sidebar = () => {
         </div>
       </div>
       <nav className="sidebar-main">
+        <div className="sidebar-section">
+          <h5 className="sidebar-section-title">ADMIN</h5>
+          <ul>
+            <MenuItem
+              icon={<DashboardIcon className="menu-item-icon" />}
+              menuItemText="Admin Page"
+              href="/admin"
+            />
+          </ul>
+        </div>
         <div className="sidebar-section">
           <h5 className="sidebar-section-title">MENU</h5>
           <ul>
