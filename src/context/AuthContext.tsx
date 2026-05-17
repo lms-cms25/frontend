@@ -1,27 +1,41 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect } from 'react'
-import { jwtDecode } from 'jwt-decode'
+import { identityUser } from '@/types/identityUser';
+import { createContext, useContext, useState } from 'react'; 
 
 interface AuthContextType {
-  user: any | null
-  roles: string[]
+  user: identityUser | null;
   isAuthenticated: boolean
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState(null)
-  const [roles, setRoles] = useState<string[]>([])
+interface AuthProviderProps {
+  children: React.ReactNode;
+  initialUser: identityUser | null;
+}
 
-  // Här kan vi läsa in användaren vid start (t.ex. från en cookie-check)
+export function AuthProvider({ children, initialUser }: AuthProviderProps) {
+
+  const [user] = useState<identityUser | null>(initialUser)
+
+  // console.log(user);
   
+
   return (
-    <AuthContext.Provider value={{ user, roles, isAuthenticated: !!user }}>
+    <AuthContext.Provider value={{ user, isAuthenticated: !!user }}>
       {children}
     </AuthContext.Provider>
   )
 }
 
-export const useAuth = () => useContext(AuthContext)
+export const useAuth = () => {
+  
+  const context = useContext(AuthContext)
+
+    if (!context) {
+    throw new Error('useAuth must be used inside AuthProvider');
+  }
+
+  return context;
+}
