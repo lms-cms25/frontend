@@ -2,23 +2,21 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
+
+  const pathname = request.nextUrl.pathname;
+  if (pathname === '/signin-email') return NextResponse.next();
   const sessionToken = request.cookies.get('session_token');
-  const { pathname } = request.nextUrl;
-
-  // 1. SKYDDA DASHBOARD
-  if (pathname.startsWith('/dashboard')) {
-    if (!sessionToken) {
-      return NextResponse.redirect(new URL('/signin-email', request.url));
-    }
-  }
-
-  // 2. SKYDDA LOGIN-SIDAN (Här stoppar vi loopen!)
-  if (pathname === '/signin-email') {
-    // VIKTIGT: Vi tar bort auto-redirecten härifrån helt.
-    // Det är bättre att användaren får se inloggningssidan en gång för mycket
-    // än att de fastnar i en oändlig loop.
-    return NextResponse.next();
-  }
-
-  return NextResponse.next();
+  if (!sessionToken) {
+    const redirectResponse = NextResponse.redirect(new URL('/signin-email', request.url));
+    redirectResponse.headers.set('x-middleware-cache', 'no-cache');
+    return redirectResponse;
+  } const response = NextResponse.next();
+  response.headers.set('x-middleware-cache', 'no-cache');
+  return response;
 }
+
+
+export const config = {
+matcher: [
+'/((?!api/|_next/|static/|favicon.ico|robots.txt|signin-email).*)'
+] };
