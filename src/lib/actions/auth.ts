@@ -132,3 +132,16 @@ export async function refreshAccessToken() {
     redirect('/signin-email');
   }
 }
+
+export async function checkIfUserIsVerified() {
+
+  try {
+    const res = await fetch(`${process.env.DOTNET_AUTH_URL}/api/auth/check`);
+
+    
+
+  } catch (error) {
+    console.log('auth.ts - checkIfUserIsVerified(): \n' + error);
+  }
+
+}
