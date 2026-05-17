@@ -1,28 +1,23 @@
-import { fetchWithAuth } from '@/lib/api';
-import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
+"use client"
 
-export default async function DashboardPage() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get('session_token');
+import { useAuth } from "@/context/AuthContext";
 
-  if (!token) {
-    redirect('/signin-email');
-  }
+export default function DashboardPage() {
 
-  // Vi tar bort try/catch här. Om fetchWithAuth gör en redirect, 
-  // så kommer den inte längre "fångas" och stoppas.
-  const res = await fetchWithAuth(`${process.env.DOTNET_AUTH_URL}/api/auth/me`);
+  const { user, isAuthenticated } = useAuth();
+
+
   
-  if (!res.ok) {
-    redirect('/signin-email');
-  }
-  
-  const userData = await res.json();
 
   return (
     <div className="p-8">
-      <h1>Välkommen {userData.email}!</h1>
+      {/* <h1>Välkommen {userData.email}!</h1> */}
+      <h1>Välkommen till dashboard, {user?.email}</h1>
+      <p>Dina roller:
+        <ul>
+          {user?.roles.map(role => <li>{role}</li>)}
+        </ul>
+      </p>
     </div>
   );
 }
